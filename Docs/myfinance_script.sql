@@ -1,0 +1,21 @@
+
+
+CREATE DATABASE MYFINANCE
+USE MYFINANCE
+
+CREATE TABLE planoconta(
+	id INT IDENTITY(1,1) NOT NULL,
+	descricao VARCHAR(50) NOT NULL,
+	tipo CHAR(1) NOT NULL,
+	PRIMARY KEY(ID)
+);
+
+CREATE TABLE transacao(
+	id INT IDENTITY(1,1) NOT NULL,
+	data DATETIME NOT NULL,
+	valor DECIMAL(9,2) NOT NULL,
+	historico TEXT,
+	planocontaid INT NOT NULL,
+	PRIMARY KEY(ID),
+	FOREIGN KEY(planocontaid) REFERENCES planoconta(id),
+);
